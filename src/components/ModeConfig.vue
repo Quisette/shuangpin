@@ -136,7 +136,7 @@ function onEditKey(key: string, leads: string[], follows: string[]) {
           v-if="editingKey === keyItem.main && keyItem.main !== ' '"
         >
           <div class="edit-line">
-            <div class="edit-label">声母</div>
+            <div class="edit-label">聲母</div>
             <input
               class="edit-input"
               :value="keyItem.leads.join(',')"
@@ -146,7 +146,7 @@ function onEditKey(key: string, leads: string[], follows: string[]) {
             />
           </div>
           <div class="edit-line">
-            <div class="edit-label">韵母</div>
+            <div class="edit-label">韻母</div>
             <input
               class="edit-input"
               :value="keyItem.follows.join(',')"

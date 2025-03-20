@@ -9,27 +9,27 @@ import { RouteRecordRaw } from "vue-router";
 export const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    name: "随机模式",
+    name: "隨機模式",
     component: RandomMode,
   },
   {
     path: "/lead-mode",
-    name: "声母模式",
+    name: "聲母模式",
     component: LeadMode,
   },
   {
     path: "/follow-mode",
-    name: "韵母模式",
+    name: "韻母模式",
     component: FollowMode,
   },
   {
     path: "/p-mode",
-    name: "长句模式",
+    name: "段落模式",
     component: ParagraphMode,
   },
   {
     path: "/settings",
-    name: "设置",
+    name: "設定",
     component: Settings,
   },
 ];

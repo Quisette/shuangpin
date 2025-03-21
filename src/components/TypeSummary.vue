@@ -14,10 +14,10 @@ const props = defineProps<TypeSummaryProps>()
       {{ (props.accuracy * 100).toFixed(2) }} %
     </div>
     <div class="speed">
-      {{ props.speed.toFixed(2) }} 字每分
+      {{ props.speed.toFixed(2) }} 字 / 分
     </div>
     <div class="avgpress">
-      {{ props.avgpress.toFixed(2) }} 次每字
+      {{ props.avgpress.toFixed(2) }} 次 / 字
     </div>
   </div>
 </template>

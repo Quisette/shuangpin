@@ -18,7 +18,7 @@ declare global {
    * }
    * ```
    */
-  type RawShuangPinConfig = typeof configs["小鹤双拼"];
+  type RawShuangPinConfig = typeof configs["小鶴雙拼"];
   type ShuangpinMode = ShuangpinConfig;
 }
 

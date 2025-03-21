@@ -1,33 +1,35 @@
 <script setup lang="ts">
 import Menu from "./components/MenuList.vue";
 import Bg from "./components/Background.vue";
-import { routes } from "./router";
+import  router  from "./router";
 import { useRoute, useRouter } from "vue-router";
 import { useStore } from "./store";
 import { computed, watchPostEffect } from "vue";
 import { ref, effect } from "vue";
 import { getPinyinOf } from "./utils/hanzi";
-
+// import router from "@/main.ts"
 const store = useStore();
-const router = useRouter();
+const routes = router.getRoutes()
+// const router = useRouter();
+
 const route = useRoute();
-const menuItems = routes.map((v) => v.name as string);
+const menuItems = computed(() => router.getRoutes().map((v) => v.name as string));
 const menuIndex = ref(0);
 
 effect(() => {
-  const index = routes.findIndex((v) => v.path === route.path);
-
+  console.log(router)
+  const index = router.getRoutes().findIndex((v) => v.path === route.path); // Fixed syntax
   if (index >= 0) {
     menuIndex.value = index;
   } else {
-    router.replace(routes.at(0)?.path ?? "/");
+    router.push(router.getRoutes()[0]?.path ?? "/");
   }
 });
 
 const spMode = computed(() => {
   const mode = store.mode();
   const name = mode.name.split("").slice(0, 2);
-  const full = name.concat(["双", "拼"]).map((v) => {
+  const full = name.concat(["雙", "拼"]).map((v) => {
     const pinyin = getPinyinOf(v).at(0) ?? "";
     const sp = mode.py2sp.get(pinyin) ?? "";
     return [v, sp];
@@ -50,7 +52,7 @@ const spMode = computed(() => {
 });
 
 function onMenuChange(i: number) {
-  router.push(routes[i]);
+  router.push(routes[i]); // Works with updated paths
 }
 
 watchPostEffect(() => {

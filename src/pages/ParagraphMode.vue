@@ -314,7 +314,7 @@ function shortPinyin(pinyins: string[]) {
           <input
             v-model="editingTitle"
             class="editing-title"
-            placeholder="键入标题"
+            placeholder="輸入標題"
           />
           <div
             class="save-btn"
@@ -327,7 +327,7 @@ function shortPinyin(pinyins: string[]) {
         <textarea
           v-model="editingContent"
           class="editing-text"
-          placeholder="键入范文……"
+          placeholder="輸入文章⋯⋯"
         />
       </div>
     </div>

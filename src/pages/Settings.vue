@@ -21,11 +21,11 @@ const buildBooleanOption = (name: string): SettingOption<boolean> => ({
   options: [
     {
       option: true,
-      name: "启用",
+      name: "開啟",
     },
     {
       option: false,
-      name: "关闭",
+      name: "關閉",
     },
   ],
   name,
@@ -36,16 +36,16 @@ type SettingKeys = keyof Omit<Settings, "shuangpinMode">;
 const settingOptions: {
   [_ in SettingKeys]: SettingOption<boolean | Theme>;
 } = {
-  enableAutoClear: buildBooleanOption("自动清空"),
-  enableKeyHint: buildBooleanOption("键位提示"),
+  enableAutoClear: buildBooleanOption("自動清除"),
+  enableKeyHint: buildBooleanOption("鍵位提示"),
   enablePinyinHint: buildBooleanOption("拼音提示"),
   theme: {
     options: [
-      { option: "auto", name: "自动" },
-      { option: "light", name: "浅色" },
+      { option: "auto", name: "自動" },
+      { option: "light", name: "淺色" },
       { option: "dark", name: "深色" },
     ],
-    name: "主题模式",
+    name: "主題模式",
   },
 };
 
@@ -94,7 +94,7 @@ function onModeChange(i: number) {
 }
 
 function deleteMode() {
-  if (confirm("确认删除？")) {
+  if (confirm("確認刪除？")) {
     store.deleteConfig(spName.value);
     settings.value.shuangpinMode = store.modes.at(
       Math.max(currentIndex.value, -1)
@@ -133,7 +133,7 @@ function editConfig() {
     </Transition>
 
     <div class="mode-setting setting-item">
-      <div class="setting-name">当前模式</div>
+      <div class="setting-name">目前模式</div>
       <div class="setting-value">
         <MenuList
           :items="shuangpins"
@@ -147,21 +147,21 @@ function editConfig() {
           :class="shouldShowEdit && 'show'"
           @click="editConfig"
         >
-          编辑
+          編輯
         </div>
         <div
           class="mode-download mode-action"
           @click="deleteMode"
           :class="shouldShowEdit && isCutom && 'show'"
         >
-          删除
+          刪除
         </div>
         <div
           class="mode-delete mode-action"
           :class="shouldShowEdit && 'show'"
           @click="downloadConfig(spName)"
         >
-          下载
+          下載
         </div>
       </div>
     </div>

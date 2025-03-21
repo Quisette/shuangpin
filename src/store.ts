@@ -24,7 +24,7 @@ export const useStore = defineStore("app", {
         enableKeyHint: true,
         enablePinyinHint: true,
         theme: "auto",
-        shuangpinMode: "小鹤双拼",
+        shuangpinMode: "小鶴雙拼",
       },
     };
   },
